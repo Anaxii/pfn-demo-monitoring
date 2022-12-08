@@ -1,6 +1,6 @@
 const logger = require("./log").logger
 
-const handleMessage = (data) => {
+const handleMessage = async (data) => {
   if (data?.data?.message == "lastBlock") {
     logger.log(
       "bridge", "         Last synced block             network: " +
@@ -26,6 +26,12 @@ const handleMessage = (data) => {
       );
     }
   } else if (data?.data?.status == "new event") {
+    logger.log("bridge_pending",
+      " Travel rule log" +
+      "               token: " + "WAVAX" +
+      " | networkIn: " + data.data.log.NetworkIn.string.toString() +
+      " | networkOut: " + data.data.log.NetworkOut.string.toString()
+    );
     logger.log("bridge_pending",
       " New event pending" +
       "             status: " + data?.data?.message +

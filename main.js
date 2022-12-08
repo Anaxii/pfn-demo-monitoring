@@ -7,7 +7,7 @@ const startSocketReader = async (url) => {
   let socket = new WebSocket(url);
   logger.log('info', `           Attempting Connection to ${url}...`);
 
-  socket.onmessage = (msg) => {
+  socket.onmessage = async (msg) => {
     let data = JSON.parse(msg.data)
     handleMessage(data)
   }
