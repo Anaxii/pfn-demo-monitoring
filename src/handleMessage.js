@@ -26,12 +26,14 @@ const handleMessage = async (data) => {
       );
     }
   } else if (data?.data?.status == "new event") {
-    logger.log("bridge_pending",
-      " Travel rule log" +
-      "               token: " + "WAVAX" +
-      " | networkIn: " + data.data.log.NetworkIn.string.toString() +
-      " | networkOut: " + data.data.log.NetworkOut.string.toString()
-    );
+    // console.log(data)
+    if (data?.data?.log?.Method == "BridgeIn")
+      logger.log("bridge_pending",
+        " Travel rule log" +
+        "               token: " + "WAVAX" +
+        " | networkIn: " + data.data.log.NetworkIn.string.toString() +
+        " | networkOut: " + data.data.log.NetworkOut.string.toString()
+      );
     logger.log("bridge_pending",
       " New event pending" +
       "             status: " + data?.data?.message +
