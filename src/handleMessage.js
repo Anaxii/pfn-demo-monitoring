@@ -72,9 +72,14 @@ const handleMessage = async (data) => {
       " | parent: " + data?.data?.parent +
       " | parent: " + data?.data?.subaccount
     );
+  } else if (data?.data?.status == "check accounts") {
+    logger.log('faucet', `         number of accounts: ${data.data.number_of_accounts}`);
+  } else if (data?.data?.status == "new faucet account") {
+    logger.log('faucet', `         walletAddress: ${data.data.walletAddress}`);
+  } else if (data?.data?.status == "topped off") {
+    logger.log('faucet', `         Account topped off | walletAddress: ${data.data.walletAddress}`);
   } else if (data?.status != "pong") {
-    logger.log('info', `           status: ${data?.status}`);
-
+    logger.log('info', `           status: ${data.status}`);
   }
 }
 

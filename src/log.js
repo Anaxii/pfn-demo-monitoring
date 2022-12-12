@@ -7,9 +7,10 @@ const logger = winston.createLogger({
     bridge_pending: 2,
     bridge_verified: 3,
     kyc: 4,
-    incoming: 5,
-    warn: 6,
-    error: 7
+    faucet: 5,
+    incoming: 6,
+    warn: 7,
+    error: 8
   },
   format: winston.format.combine(
     winston.format.colorize(),
@@ -28,6 +29,7 @@ winston.addColors({
   bridge_pending: 'yellow',
   bridge_verified: 'green',
   kyc: 'magenta',
+  faucet: 'red',
   warn: 'orange',
   error: 'red'
 });
